@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# coding : utf-8
+
 from httplib import *
 from urllib import urlencode
 import string
